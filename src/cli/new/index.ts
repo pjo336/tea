@@ -7,7 +7,7 @@ interface GenerateNewProjectOptions {
   skipDependencies?: boolean; // Should install run
 }
 
-export async function generateNewProject(appName: string, options: GenerateNewProjectOptions) {
+export async function generateNewProject(appName: string, options: GenerateNewProjectOptions = {}) {
   const args = options.input ? options.input : await askQuestions();
   const cwd = process.cwd();
   console.log('🍵  Brewing some tea 🍵');

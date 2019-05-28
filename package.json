@@ -1,10 +1,10 @@
 {
   "name": "ts-tea",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tooling for easy API generation in Typescript",
   "main": "build/index.js",
   "scripts": {
-    "build": "rm -rf build && tsc && npm run copy:new:templates",
+    "build": "npm run lint && rm -rf build && tsc && npm run copy:new:templates",
     "copy:new:templates": "copyfiles -a -u 1 \"src/cli/new/templates/**\" build",
     "lint": "npm run lint:src && npm run lint:test",
     "lint:src": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
