@@ -7,7 +7,7 @@ export default async function generateNewProject(appName: string) {
   const cwd = process.cwd();
   console.log('🍵  Brewing some tea 🍵');
   await writeAllTemplates({ cwd, args, appName });
-  await installDeps(appName);
+  await installDeps({ appName });
   console.log(`🍵🍵  ${appName} is ready to go! 🍵🍵`);
   return true;
 }

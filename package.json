@@ -6,8 +6,11 @@
   "scripts": {
     "build": "rm -rf build && tsc && npm run copy:new:templates",
     "copy:new:templates": "copyfiles -a -u 1 \"src/cli/new/templates/**\" build",
+    "lint": "npm run lint:src && npm run lint:test",
+    "lint:src": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "lint:test": "node_modules/.bin/tslint -c tslint.json 'tests/**/*.ts'",
     "start": "node build/index.js",
-    "test": "npm test"
+    "test": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/mocha.opts"
   },
   "bin": {
     "tea": "build/index.js"
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
     "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
     "@types/commander": "^2.12.2",
     "@types/fs-extra": "^7.0.0",
     "@types/inquirer": "^6.0.3",
@@ -33,11 +37,20 @@
     "@types/node": "^12.0.2",
     "@types/npm": "^2.0.30",
     "@types/sinon": "^7.0.12",
+    "@types/sinon-chai": "^3.2.2",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "copyfiles": "^2.1.0",
+    "husky": "^2.3.0",
     "mocha": "^6.1.4",
+    "module-alias": "^2.2.0",
+    "nyc": "^14.1.1",
     "rimraf": "^2.6.3",
     "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0",
+    "ts-node": "^8.2.0",
+    "tsconfig-paths": "^3.8.0",
+    "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   },
   "dependencies": {
@@ -47,5 +60,25 @@
     "inquirer": "^6.3.1",
     "lodash": "^4.17.11",
     "npm": "^6.9.0"
+  },
+  "nyc": {
+    "all": true,
+    "extension": [
+      ".ts"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.test.ts"
+    ],
+    "cache": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && tsc && npm test"
+    }
   }
 }
