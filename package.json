@@ -1,5 +1,5 @@
 {
-  "name": "tea",
+  "name": "ts-tea",
   "version": "0.0.1",
   "description": "Tooling for easy API generation in Typescript",
   "main": "build/index.js",
@@ -10,6 +10,9 @@
     "lint:src": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
     "lint:test": "node_modules/.bin/tslint -c tslint.json 'tests/**/*.ts'",
     "start": "node build/index.js",
+    "preversion": "npm test && npm run test:e2e",
+    "version": "rm -rf build && npm run build",
+    "postversion": "git push && git push --tags && rm -rf build/temp",
     "test": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/mocha.opts",
     "test:e2e": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/e2e/mocha.opts"
   },
