@@ -6,7 +6,7 @@ import { PACKAGES_DEV_DEP } from './dev-dependencies';
 
 export async function installDeps({ appName }: { appName: string }) {
   const execProm = promisify(exec);
-  await execProm(`npm i --loglevel warn --prefix ${appName} ${PACKAGES_DEP.join(' ')}`);
-  await execProm(`npm i --loglevel error --prefix ${appName} -D ${PACKAGES_DEV_DEP.join(' ')}`);
+  await execProm(`npm i --prefix ${appName} ${PACKAGES_DEP.join(' ')}`);
+  await execProm(`npm i --prefix ${appName} -D ${PACKAGES_DEV_DEP.join(' ')}`);
   return true;
 }
