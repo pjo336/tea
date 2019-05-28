@@ -1,9 +1,6 @@
 import * as commander from 'commander';
 import * as _ from 'lodash';
-import generateNewProject from './new';
-
-/* Use {{}} syntax in templates */
-_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+import { generateNewProject } from './new';
 
 const cli = new commander.Command();
 cli.version(require('../../package.json').version);

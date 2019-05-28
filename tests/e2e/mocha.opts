@@ -1,0 +1,11 @@
+--require ts-node/register
+--require tsconfig-paths/register
+--require source-map-support/register
+--require tests/setup.ts
+--option value tests/**/*.e2e.ts
+--recursive
+--retries 0
+--sort
+--timeout 300000
+--reporter min
+tests/helper.ts

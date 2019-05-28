@@ -7,6 +7,9 @@ import { promisify } from 'util';
 
 import templates from './template-definitions';
 
+/* Use {{}} syntax in templates */
+_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+
 export async function writeAllTemplates({
   cwd,
   args,
@@ -16,7 +19,7 @@ export async function writeAllTemplates({
   args: any;
   appName: string;
 }) {
-  await bluebird.map(templates, tmpl => writeTemplate(cwd, tmpl, { appName, ...args }));
+  return bluebird.map(templates, tmpl => writeTemplate(cwd, tmpl, { appName, ...args }));
 }
 
 async function writeTemplate(cwd: string, template: Template, args: any): Promise<void> {
@@ -42,5 +45,8 @@ async function writeContentToCWD({
   appName: string;
   fileContents: string;
 }): Promise<void> {
-  return promisify(fs.outputFile)(path.resolve(cwd, appName, template.writeLocation), fileContents);
+  return promisify(fs.outputFile as any)(
+    path.resolve(cwd, appName, template.writeLocation),
+    fileContents
+  );
 }

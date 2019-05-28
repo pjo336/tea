@@ -10,7 +10,8 @@
     "lint:src": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
     "lint:test": "node_modules/.bin/tslint -c tslint.json 'tests/**/*.ts'",
     "start": "node build/index.js",
-    "test": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/mocha.opts"
+    "test": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/mocha.opts",
+    "test:e2e": "MODULE_ALIAS=true TS_NODE_PROJECT=./tests/tsconfig.json NODE_ENV=test nyc mocha --opts ./tests/e2e/mocha.opts"
   },
   "bin": {
     "tea": "build/index.js"
@@ -48,6 +49,7 @@
     "rimraf": "^2.6.3",
     "sinon": "^7.3.2",
     "sinon-chai": "^3.3.0",
+    "snap-shot": "^2.17.0",
     "ts-node": "^8.2.0",
     "tsconfig-paths": "^3.8.0",
     "tslint": "^5.16.0",
@@ -56,10 +58,12 @@
   "dependencies": {
     "bluebird": "^3.5.5",
     "commander": "^2.20.0",
+    "config": "^3.1.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "fs-extra": "^8.0.1",
     "inquirer": "^6.3.1",
-    "lodash": "^4.17.11",
-    "npm": "^6.9.0"
+    "lodash": "^4.17.11"
   },
   "nyc": {
     "all": true,
