@@ -1,6 +1,6 @@
 {
   "name": "ts-tea",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tooling for easy API generation in Typescript",
   "main": "build/index.js",
   "scripts": {
