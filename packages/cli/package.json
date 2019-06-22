@@ -1,5 +1,5 @@
 {
-  "name": "@tea/cli",
+  "name": "@ts-tea/cli",
   "version": "0.0.6",
   "description": "Tooling for easy API generation in Typescript",
   "main": "build/index.js",
