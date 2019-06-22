@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import * as commander from 'commander';
 import * as _ from 'lodash';
 
@@ -7,7 +6,7 @@ import { graphQlResource } from './graphql';
 import { generateNewProject } from './new';
 
 const cli = new commander.Command();
-cli.version(require('../package.json').version);
+cli.version(require('../../package.json').version);
 
 /* Generate a new project (One time use) */
 cli
@@ -32,7 +31,5 @@ cli
   .command('g <generator>')
   .description('Generate a resource to use in the application (controller, model, etc)')
   .action(handleGenerate);
-
-cli.parse(process.argv);
 
 export default cli; // Pass around to add commands

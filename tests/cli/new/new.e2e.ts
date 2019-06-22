@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { resolve } from 'path';
 const snapshot = require('snap-shot');
 
-import { generateNewProject } from '~/src/new';
+import { generateNewProject } from '~/src/cli/new';
 
 describe('E2E new project generation', () => {
   const appName = 'e2e-test-app';

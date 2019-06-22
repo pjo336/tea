@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import * as fs from 'fs-extra';
 
-import { writeFile } from '../utils/write-file';
+import { writeFile } from '../../utils/write-file';
 
 export async function initGraphql(workingDir: string) {
   // Create the root schema and root resolver
