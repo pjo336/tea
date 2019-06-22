@@ -3,7 +3,6 @@ import * as fs from 'fs-extra';
 import * as _ from 'lodash';
 import * as path from 'path';
 import { Template } from 'tea-domain';
-import { promisify } from 'util';
 
 import templates from './template-definitions';
 
@@ -23,9 +22,7 @@ export async function writeAllTemplates({
 }
 
 async function writeTemplate(cwd: string, template: Template, args: any): Promise<void> {
-  const file = await promisify(fs.readFile)(
-    path.resolve(__dirname, `templates/${template.templateLocation}`)
-  );
+  const file = await fs.readFile(path.resolve(__dirname, `templates/${template.templateLocation}`));
   return writeContentToCWD({
     cwd,
     template,
@@ -45,8 +42,5 @@ async function writeContentToCWD({
   appName: string;
   fileContents: string;
 }): Promise<void> {
-  return promisify(fs.outputFile as any)(
-    path.resolve(cwd, appName, template.writeLocation),
-    fileContents
-  );
+  return fs.outputFile(path.resolve(cwd, appName, template.writeLocation), fileContents);
 }
