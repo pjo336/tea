@@ -2,3 +2,10 @@ circleci
 .nyc_output
 node_modules
 __snapshots__
+src
+tests
+.nvmrc
+tsconfig.json
+tslint.json
+.circleci
+build/**/*.map
