@@ -1,6 +1,6 @@
 {
   "name": "@pjo336/tea",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Tooling for easy API generation in Typescript",
   "main": "build/index.js",
   "scripts": {
