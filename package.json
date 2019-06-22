@@ -1,6 +1,5 @@
 {
   "name": "tea",
-  "version": "0.0.4",
   "description": "Tooling for easy API generation in Typescript",
   "repository": {
     "type": "git",
@@ -13,37 +12,12 @@
   },
   "homepage": "https://github.com/pjo336/tea#readme",
   "devDependencies": {
-    "@types/bluebird": "^3.5.27",
-    "@types/chai": "^4.1.7",
-    "@types/chai-as-promised": "^7.1.0",
-    "@types/commander": "^2.12.2",
-    "@types/find-up": "^2.1.1",
-    "@types/fs-extra": "^7.0.0",
-    "@types/inquirer": "^6.0.3",
-    "@types/lodash": "^4.14.132",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^12.0.2",
-    "@types/npm": "^2.0.30",
-    "@types/sinon": "^7.0.12",
-    "@types/sinon-chai": "^3.2.2",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "copyfiles": "^2.1.0",
-    "husky": "^2.3.0",
-    "lerna": "^3.14.1",
-    "mocha": "^6.1.4",
-    "module-alias": "^2.2.0",
-    "nyc": "^14.1.1",
-    "rimraf": "^2.6.3",
-    "sinon": "^7.3.2",
-    "sinon-chai": "^3.3.0",
-    "snap-shot": "^2.17.0",
-    "ts-node": "^8.2.0",
-    "tsconfig-paths": "^3.8.0",
-    "tslint": "^5.16.0",
-    "typescript": "^3.4.5"
+    "lerna": "^3.14.1"
   },
-  "dependencies": {
-    "@tea/cli": "file:packages/cli"
+  "scripts": {
+    "bootstrap": "lerna exec npm i",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "test:e2e": "lerna run test:e2e"
   }
 }

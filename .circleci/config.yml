@@ -12,17 +12,15 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm i -g lerna
-
-      - run: lerna exec npm i
+      - run: npm run bootstrap
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "./package.json" }}
 
-      - run: lerna run build
+      - run: npm run build
 
-      - run: lerna run test
+      - run: npm run test
 
-      - run: lerna run test:e2e
+      - run: npm run test:e2e
