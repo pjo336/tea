@@ -90,5 +90,8 @@
     "hooks": {
       "pre-commit": "npm run lint && tsc && npm test"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
