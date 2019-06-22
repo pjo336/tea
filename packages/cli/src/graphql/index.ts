@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import * as fs from 'fs-extra';
 
-import { findTeaProjectDir } from '../../utils/find-tea-project-dir';
+import { findTeaProjectDir } from '../utils/find-tea-project-dir';
 import { initGraphql } from './init';
 import { resolve } from 'path';
 

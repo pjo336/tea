@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12.3
 
     steps:
       - checkout
@@ -12,13 +12,15 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm i
+      - run: lerna exec npm i
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "./package.json" }}
 
-      - run: npm test
+      - run: lerna run build
 
-      - run: npm run test:e2e
+      - run: lerna run test
+
+      - run: lerna run test:e2e
