@@ -1,0 +1,12 @@
+import { IResolvers } from 'graphql-tools';
+
+const queryResolvers = {};
+
+const mutationResolvers = {};
+
+const rootResolvers: IResolvers = {
+  Query: queryResolvers,
+  Mutation: mutationResolvers,
+};
+
+export { rootResolvers };
