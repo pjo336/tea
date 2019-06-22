@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12.3
 
     steps:
       - checkout
@@ -14,11 +14,15 @@ jobs:
 
       - run: npm i
 
+      - run: npm run bootstrap
+
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "./package.json" }}
 
-      - run: npm test
+      - run: npm run build
+
+      - run: npm run test
 
       - run: npm run test:e2e
