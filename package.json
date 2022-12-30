@@ -47,7 +47,7 @@
     "chai-as-promised": "^7.1.1",
     "copyfiles": "^2.1.0",
     "husky": "^2.3.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "module-alias": "^2.2.0",
     "nyc": "^14.1.1",
     "rimraf": "^2.6.3",
